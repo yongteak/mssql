@@ -77,7 +77,6 @@ init(Args) ->
       proplists:get_value(uid, Args, "username"),
       proplists:get_value(pwd, Args, "password")]),
   {ok, Ref} = odbc:connect(ConnStr,[]),
-  io:fwrite("~p ~n", [Ref]),
   {ok, #state{ref=Ref}}.
 
 %%--------------------------------------------------------------------
