@@ -1,0 +1,17 @@
+{application, mssql,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {mssql_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    odbc,
+    poolboy
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
