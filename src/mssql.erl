@@ -74,6 +74,7 @@ init(Args) ->
       proplists:get_value(uid, Args, "username"),
       proplists:get_value(pwd, Args, "password")]),
   {ok, Ref} = odbc:connect(ConnStr,[]),
+  error_logger:info_msg("Connecting to MSSQL DNS => ~p", [proplists:get_value(dsn, Args, "mssql")]),
   {ok, #state{ref=Ref}}.
 
 %%--------------------------------------------------------------------
