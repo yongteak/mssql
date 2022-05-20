@@ -69,11 +69,8 @@ start_link(Args) ->
 init(Args) ->
   process_flag(trap_exit, true),
   ConnStr = io_lib:format(
-    "DRIVER=~s;SERVER=~s;PORT=~s;TRACE=~s;UID=~s;PWD=~s", [
-      proplists:get_value(driver, Args, "FreeTDS"),
-      proplists:get_value(server, Args, "127.0.0.1"),
-      proplists:get_value(port, Args, "1433"),
-      proplists:get_value(trace, Args, "No"),
+    "DSN=~s;UID=~s;PWD=~s", [
+      proplists:get_value(dsn, Args, "mssql"),
       proplists:get_value(uid, Args, "username"),
       proplists:get_value(pwd, Args, "password")]),
   {ok, Ref} = odbc:connect(ConnStr,[]),
